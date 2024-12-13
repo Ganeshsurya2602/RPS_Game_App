@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Rock-Paper-Scissors Game By Ganesh Suryawanshi</title>
+		<style>
+			*{font-size: 40px;
+				font-family: 'Roboto', sans-serif;
+  				}
+			body {
+				background-color:salmon;
+				}
+			button{
+				width:15%;
+				height:15%;
+				background-color:teal;
+				border-radius:15%;
+			}
+		</style>
+	</head>
+	<body>
+	<center>
+		<form onsubmit="show()">
+			<h1>Rock Paper Scissors Game</h1></br>
+			<button value="rk">✊</button>
+			<button value="pa">✋</button>
+			<button value="se">✌</button>
+		</form>
+		<br/>
+		<label>YOUR MOVE:</label>
+		<button id="you" style="background-color:coral;">YOUR MOVE</button>
+		<label>BOT MOVE:</label>
+		<button id="bot" style="background-color:coral;">BOT MOVE</button>
+		<h2 id="msg" />
+		<script>
+			function show(){
+				event.preventDefault();
+				let msg= document.getElementById("msg");
+				let bot= document.getElementById("bot");
+				let you= document.getElementById("you");
+				let action=document.activeElement.value;
+				let giv="";
+				if(action==="rk"){	
+					giv="rk";	
+					you.innerText="✊";
+				}
+				else if(action==="pa"){	
+					giv="pa";
+					you.innerText="✋";
+				}
+				else if(action==="se"){
+					giv="se";	
+					you.innerText="✌";
+				}
+
+				let ch=["rk","pa","se"];
+				let botans=ch[parseInt(Math.random() * 3)];
+
+				if(botans==="rk"){
+					bot.innerText="✊";
+					if(giv==="se")	msg.innerHTML="Oops! You lost this time, but the next game is yours! 😊";
+					else if(giv==="rk")	msg.innerHTML="It's a tie! That was a close match! 🤝";
+					else	msg.innerHTML="Congratulations, you won! Keep up the great work! 🎉";
+					}
+
+
+
+				else if(botans==="pa"){	
+					bot.innerText="✋";
+					if(giv==="rk")	msg.innerHTML="Oops! You lost this time, but the next game is yours! 😊";
+					else if(giv==="pa")	msg.innerHTML="It's a tie! That was a close match! 🤝";
+					else	msg.innerHTML="Congratulations, you won! Keep up the great work! 🎉";
+					
+				}
+				else if(botans==="se"){			
+					bot.innerText="✌";
+					if(giv==="rk")	msg.innerHTML="Oops! You lost this time, but the next game is yours! 😊";
+					else if(giv==="se")	msg.innerHTML="It's a tie! That was a close match! 🤝";
+					else	msg.innerHTML="Congratulations, you won! Keep up the great work! 🎉";
+					
+				}
+			
+			}
+		</script>
+	</center>
+	<body>
+</html>
